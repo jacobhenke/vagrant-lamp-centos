@@ -43,6 +43,7 @@ $ sudo vim /etc/hosts
 ```
 
 Add the following lines:
+
 	```bash
 127.0.0.1    app.dev
 127.0.0.1    www.app.dev
