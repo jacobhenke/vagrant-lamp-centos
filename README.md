@@ -44,8 +44,8 @@ $ sudo vim /etc/hosts
 
 Add the following lines:
 
-127.0.0.1    app.dev
-127.0.0.1    www.app.dev
+`127.0.0.1    app.dev
+127.0.0.1    www.app.dev`
 
 5. Start Vagrant
 
