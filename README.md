@@ -47,14 +47,14 @@ Add the following lines:
 127.0.0.1    app.dev
 127.0.0.1    www.app.dev
 ```
-4. Start Vagrant
+5. Start Vagrant
 
 	```bash
 $ cd ..
 $ vagrant up --provision
 ```
 
-5.  Once startup in complete, point your browser to `http://app.dev:8080` to make sure Apache is running.
+6.  Once startup in complete, point your browser to `http://app.dev:8080` to make sure Apache is running.
 
 
 ## Usage ##
