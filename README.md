@@ -1,16 +1,17 @@
-#LAMP Stack on CentOS 6.4 Built with Vagrant/Puppet#
+#LAMP Stack on CentOS 6.5 Built with Vagrant/Puppet#
 
-For anyone wanting to try out Vagrant, here's some sample code to help you setup your own LAMP dev sandbox quickly. It runs on CentOS 6.4 and the internal setup is done with Puppet.
+(a few tweaks based on https://github.com/sgphpug/vagrant-lamp-centos64)
 
-Do note that the first run might take a while. Depending on your speed, 10 minutes to download the base VM (CentOS 6.4) and 5 minutes to startup and provision the VM. But subsequent startup should be quite fast.
+For anyone wanting to try out Vagrant, here's some sample code to help you setup your own LAMP dev sandbox quickly. It runs on CentOS 6.5 and the internal setup is done with Puppet.
+
+Do note that the first run might take a while. Depending on your speed, 10 minutes to download the base VM (CentOS 6.5) and 5 minutes to startup and provision the VM. But subsequent startup should be quite fast.
 
 You can spin up new boxes very easily. Just put your PHP scripts in the `project` folder and add a new vhost. If you are lazy, just throw your PHP files into the `project/webroot` folder.
 
 ## Pre-Requisite Software ##
 
-* VirtualBox (>= 4.3.2) ([https://www.virtualbox.org/](https://www.virtualbox.org/))
-* VirtualBox Extension Pack ([https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads))
-* Vagrant (>= 1.3.5) ([http://vagrantup.com/](http://vagrantup.com/))
+* Vagrant (>= 1.6.5) ([http://vagrantup.com/](http://vagrantup.com/))
+* Appropriate Vagrant provider (tested with VMWare Fusion)
 * Librarian-Puppet ([https://github.com/rodjek/librarian-puppet](https://github.com/rodjek/librarian-puppet))
 
 ##Installation Instructions##
@@ -25,8 +26,8 @@ $ sudo gem install librarian-puppet
 2. Clone this Git Repository
 
 	```bash
-$ git clone git@github.com:sgphpug/vagrant-lamp-centos64.git
-$ cd vagrant-lamp-centos64
+$ git clone git@github.com/jacobhenke/vagrant-lamp-centos.git
+$ cd vagrant-lamp-centos
 ```
 
 3. Install Puppetfile dependencies
@@ -35,6 +36,17 @@ $ cd vagrant-lamp-centos64
 $ cd puppet
 $ librarian-puppet install
 ```
+4. Set up desired hostname
+
+	```bash
+$ sudo vim /etc/hosts
+```
+
+Add the following lines:
+	```bash
+127.0.0.1    app.dev
+127.0.0.1    www.app.dev
+```
 4. Start Vagrant
 
 	```bash
@@ -42,7 +54,7 @@ $ cd ..
 $ vagrant up --provision
 ```
 
-5.  Once startup in complete, point your browser to `http://localhost:8080` to make sure Apache is running.
+5.  Once startup in complete, point your browser to `http://app.dev:8080` to make sure Apache is running.
 
 
 ## Usage ##
@@ -93,4 +105,4 @@ All the configuration are in `Vagrantfile` and in the `puppet/manifests/hieradat
 
 ## Disclaimer ##
 
-This configuration was successfully tested on Mac OSX Mavericks.
+This configuration was successfully tested on Mac OSX Yosemite.
