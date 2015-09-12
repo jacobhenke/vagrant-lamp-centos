@@ -5,7 +5,7 @@ mod 'puppetlabs/apache'
 mod 'puppetlabs/mysql'
 mod 'thias/php'
 mod 'willdurand/composer'
-mod 'spiette/selinux'
+mod 'jfryman/selinux'
 mod 'rmccue/wp'
-mod 'distractedio/appdev',
+mod 'jacobhenke/appdev',
   :git => "git://github.com/jacobhenke/appdev-for-librarianandvagrant"
