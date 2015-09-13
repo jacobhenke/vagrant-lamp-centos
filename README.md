@@ -2,11 +2,20 @@
 
 (a few tweaks based on https://github.com/sgphpug/vagrant-lamp-centos64)
 
-For anyone wanting to try out Vagrant, here's some sample code to help you setup your own LAMP dev sandbox quickly. It runs on CentOS 6.5 and the internal setup is done with Puppet.
+For anyone wanting to try out Vagrant, here's some sample code to help you setup your own LAMP dev sandbox quickly. It runs on CentOS 7 and the internal setup is done with Puppet and a few small bash scripts.
 
-Do note that the first run might take a while. Depending on your speed, 10 minutes to download the base VM (CentOS 6.5) and 5 minutes to startup and provision the VM. But subsequent startup should be quite fast.
+Do note that the first run might take a while. Depending on your speed, 10 minutes to download the base VM and 5 minutes to startup and provision the VM. But subsequent startup should be quite fast.
 
-You can spin up new boxes very easily. Just put your PHP scripts in the `project` folder and add a new vhost. If you are lazy, just throw your PHP files into the `project/webroot` folder.
+You can spin up new boxes very easily. Just put your PHP scripts in the `project` folder and add a new vhost. If you are lazy, just throw your PHP files into the `project/public_html` folder.
+
+## Toys included: ##
+
+* Apache 2.4.6
+* PHP 5.4.16 (with php-cli and pear)
+* APC
+* XDebug (with remote start)
+* WP-CLI
+* composer
 
 ## Pre-Requisite Software ##
 
@@ -44,8 +53,10 @@ $ sudo vim /etc/hosts
 
 Add the following lines:
 
-`127.0.0.1    app.dev
-127.0.0.1    www.app.dev`
+```
+127.0.0.1    app.dev
+127.0.0.1    www.app.dev
+```
 
 5. Start Vagrant
 
@@ -54,12 +65,12 @@ $ cd ..
 $ vagrant up --provision
 ```
 
-6.  Once startup in complete, point your browser to `http://app.dev:8080` to make sure Apache is running.
+6.  Once startup in complete, point your browser to `http://app.dev` to make sure Apache is running.
 
 
 ## Usage ##
 
-* Put your files in `project/webroot` to make it appear in the Apache document root. The `./project` folder is mapped to `/data` in the VM.
+* Put your files in `project/public_html` to make it appear in the Apache document root. The `./project` folder is mapped to `/data` in the VM. For conveinence, `/home/vagrant/public_html` is a softlink to `/data/public_html`
 
 * The MySQL username is `root` and the root password is `media1`.
 
@@ -105,4 +116,5 @@ All the configuration are in `Vagrantfile` and in the `puppet/manifests/hieradat
 
 ## Disclaimer ##
 
-This configuration was successfully tested on Mac OSX Yosemite.
+* This configuration was successfully tested on Mac OSX El Capitan with VMWare Fusion.
+* This is designed for *local use only!* The firewall and SELinux are completely disabled and no other security options were put in place. Don't put this on a public server!
