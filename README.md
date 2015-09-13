@@ -1,4 +1,4 @@
-#LAMP Stack on CentOS 6.5 Built with Vagrant/Puppet#
+#LAMP Stack on CentOS 7 Built with Vagrant/Puppet#
 
 (a few tweaks based on https://github.com/sgphpug/vagrant-lamp-centos64)
 
@@ -115,4 +115,4 @@ All the configuration are in `Vagrantfile` and in the `puppet/manifests/hieradat
 ## Disclaimer ##
 
 * This configuration was successfully tested on Mac OSX El Capitan with VMWare Fusion.
-* This is designed for _*local use only!*_ The firewall and SELinux are completely disabled and no other security options were put in place. Don't put this on a public server!
+* This is designed for **local use only!** The firewall and SELinux are completely disabled and no other security options were put in place. Don't put this on a public server!
