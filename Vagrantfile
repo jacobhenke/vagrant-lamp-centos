@@ -54,7 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
-  config.vm.provision "shell", path: "bootstrap.bash"
+  config.vm.provision "shell", path: "./etc_config/bootstrap.bash"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -81,7 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.hiera_config_path = "puppet/manifests/hiera.yaml"
   end
 
-  config.vm.provision "shell", path: "apc.bash"
+  config.vm.provision "shell", path: "./etc_config/final.bash"
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding

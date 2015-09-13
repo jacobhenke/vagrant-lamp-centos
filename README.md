@@ -50,10 +50,8 @@ $ librarian-puppet install
 	```bash
 $ sudo vim /etc/hosts
 ```
-
-Add the following lines:
-
-```
+	Add the following lines:
+	```
 127.0.0.1    app.dev
 127.0.0.1    www.app.dev
 ```
@@ -117,4 +115,4 @@ All the configuration are in `Vagrantfile` and in the `puppet/manifests/hieradat
 ## Disclaimer ##
 
 * This configuration was successfully tested on Mac OSX El Capitan with VMWare Fusion.
-* This is designed for *local use only!* The firewall and SELinux are completely disabled and no other security options were put in place. Don't put this on a public server!
+* This is designed for _*local use only!*_ The firewall and SELinux are completely disabled and no other security options were put in place. Don't put this on a public server!
