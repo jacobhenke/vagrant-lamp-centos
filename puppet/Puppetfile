@@ -6,6 +6,8 @@ mod 'puppetlabs/mysql'
 mod 'thias/php'
 mod 'willdurand/composer'
 mod 'jfryman/selinux'
-mod 'rmccue/wp'
+mod 'hdeadman/puppet-wp',
+  :git => "https://github.com/hdeadman/puppet-wp"
+
 mod 'jacobhenke/appdev',
   :git => "git://github.com/jacobhenke/appdev-for-librarianandvagrant"
